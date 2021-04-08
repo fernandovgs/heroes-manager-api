@@ -1,7 +1,6 @@
 package com.digitalinnovationone.heroesmanagerapi.controller;
 
 import com.digitalinnovationone.heroesmanagerapi.document.Heroes;
-import com.digitalinnovationone.heroesmanagerapi.repository.HeroesRepository;
 import com.digitalinnovationone.heroesmanagerapi.service.HeroesService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
