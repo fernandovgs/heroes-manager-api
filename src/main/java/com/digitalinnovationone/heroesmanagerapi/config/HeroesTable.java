@@ -9,8 +9,7 @@ import com.amazonaws.services.dynamodbv2.model.*;
 
 import java.util.Collections;
 
-import static com.digitalinnovationone.heroesmanagerapi.constants.HeroesConstants.ENDPOINT_DYNAMO;
-import static com.digitalinnovationone.heroesmanagerapi.constants.HeroesConstants.REGION_DYNAMO;
+import static com.digitalinnovationone.heroesmanagerapi.constants.HeroesConstants.*;
 
 public class HeroesTable {
     public static void main(String[] args) {
@@ -22,10 +21,8 @@ public class HeroesTable {
 
         DynamoDB dynamoDB = new DynamoDB(client);
 
-        String tableName = "Heroes_Table";
-
         try {
-            Table table = dynamoDB.createTable(tableName,
+            Table table = dynamoDB.createTable(HEROES_TABLE,
                     Collections.singletonList(new KeySchemaElement("id", KeyType.HASH)
                     ),
                     Collections.singletonList(new AttributeDefinition("id", ScalarAttributeType.S)

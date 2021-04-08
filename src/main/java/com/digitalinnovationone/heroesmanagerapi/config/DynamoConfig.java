@@ -5,7 +5,6 @@ import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
 import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +19,7 @@ public class DynamoConfig {
     @Value("${amazon.dynamodb.region}")
     private String signingRegion;
 
-    @Bean
+    @Bean(name = "dynamoDBClient")
     public AmazonDynamoDB amazonDynamoDB() {
         return AmazonDynamoDBClientBuilder
                 .standard()
@@ -29,7 +28,7 @@ public class DynamoConfig {
                 ).build();
     }
 
-    @Bean("AWSCredentialsProvider")
+    @Bean(name = "AWSCredentialsProvider")
     public AWSCredentialsProvider amazonAWSCredentialsProvider() {
         return new ProfileCredentialsProvider();
     }
